@@ -1,0 +1,9 @@
+.board-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.instruction-row{
+    margin: 8px;
+}
