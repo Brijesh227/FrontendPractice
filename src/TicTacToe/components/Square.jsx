@@ -3,9 +3,7 @@ import './Square.css';
 
 function Square({index, userClicked, content}) {
   return (
-    <div className='sqaure-box'>
-        <button onClick={() => userClicked(index)}>{ content }</button>
-    </div>
+    <button className='sqaure-box' onClick={() => userClicked(index)}>{ content }</button>
   )
 }
 

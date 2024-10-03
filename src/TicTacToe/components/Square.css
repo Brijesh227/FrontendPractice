@@ -1,4 +1,7 @@
 .sqaure-box{
     border: 1px solid gray;
-    padding: 16px;
+    height: 70px;
+    width: 70px;
+    font-size:x-large;
+    font-weight: bold;
 }

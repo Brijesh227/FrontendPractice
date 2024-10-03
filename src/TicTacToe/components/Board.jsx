@@ -5,28 +5,43 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 function Board() {
-    const arr = Array(9).fill("");
-    const [board, setBoard] = useState(arr);
-    const [winner, setWinner] = useState("");
+    const [board, setBoard] = useState(Array(9).fill(""));
+    const [winner, setWinner] = useState(undefined);
     const [currTurn, setCurrTurn] = useState("x");
+    const [selectedIndex, setSelectedIndex] = useState(undefined);
 
     const userClicked = (index) => {
-        if(!board[index]){
+        if(!board[index] && !winner){
             const newArr = [...board];
             newArr[index] = currTurn;
             setBoard(newArr);
+            setSelectedIndex(index);
             setCurrTurn(currTurn === 'x' ? 'o' : 'x');
         }
     }
 
     useEffect(() => {
-        
-    },[board])
+        const winnerPosition = [
+            [0,1,2],
+            [0,4,8],
+            [0,3,6],
+            [1,4,7],
+            [2,5,8],
+            [2,4,6],
+            [3,4,5],
+            [6,7,8]
+        ];
+        const checkForPosition = winnerPosition.filter(arr => arr.some(ele => ele === selectedIndex));
+        const isWinner = checkForPosition.filter(arr => arr.every(item => board[item] === board[selectedIndex]));
+        if(isWinner.length > 0){
+            setWinner(board[selectedIndex]);
+        }
+    },[selectedIndex])
 
   return (
     <div>
         <h2>Tic Tac Toe game</h2>
-        <div className='instruction-row'>Next player: { currTurn} </div>
+        <div className='instruction-row'>Next player: { currTurn } </div>
         <div>
             <div className='board-row'>
                 <Square index={0} userClicked={userClicked} content={board[0]}/>
