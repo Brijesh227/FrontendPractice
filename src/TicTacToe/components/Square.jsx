@@ -1,9 +1,9 @@
 import React from 'react'
 import './Square.css';
 
-function Square({index, userClicked, content}) {
+function Square({userClicked, content}) {
   return (
-    <button className='sqaure-box' onClick={() => userClicked(index)}>{ content }</button>
+    <button className='sqaure-box' onClick={userClicked}>{ content }</button>
   )
 }
 

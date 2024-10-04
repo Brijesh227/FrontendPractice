@@ -7,3 +7,11 @@
 .instruction-row{
     margin: 8px;
 }
+
+.board-button {
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 10px;
+}
