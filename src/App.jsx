@@ -1,10 +1,12 @@
-import Board from './TicTacToe/components/Board'
+import Board from './TicTacToe/components/Board';
+import Card from './DataFetch/Card';
 import './App.css'
 
 function App() {
   return (
     <>
-      <Board />
+      <Card />
+      {/* <Board /> */}
     </>
   )
 }
